@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Kitap Listesi";
+}
+
+<div class="table-wrapper">
+    <div class="table-title">
+        <div class="row">
+            <div class="col-sm-8"><h2>Kitap <b>Listesi</b></h2></div>
+            <div class="col-sm-4">
+
+                <a href="@Url.Action("Yeni")"><button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Yeni Ekle</button></a>
+            </div>
+        </div>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Ad</th>
+                <th>Yazar</th>
+                <th>Yayınevi</th>
+                <th>Eklenme Tarihi</th>
+                <th>İşlemler</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var book in Model)
+            {
+                <tr>
+
+                    <td>@book.Name</td>
+                    <td>@book.Writer</td>
+                    <td>@book.Publisher</td>
+                    <td>@book.CreatedAt.ToShortDateString()</td>
+                    <td>
+                       
+                        <a href="@Url.Action("Duzenle",new { id = book.Id })" class="edit" title="Düzenle" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                        <a href="@Url.Action("Sil",new { id = book.Id })" class="delete" title="Sil" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

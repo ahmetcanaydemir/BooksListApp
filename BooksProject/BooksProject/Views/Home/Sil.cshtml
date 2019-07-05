@@ -1,0 +1,53 @@
+﻿@model DataAccessLayer.Models.Book
+
+@{
+    ViewBag.Title = "Kitap Sil";
+}
+
+<h2>Kitap Sil</h2>
+
+<h3>Bu kitabı silmek istediğinize emin misiniz?</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            Ad
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            Yazar
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Writer)
+        </dd>
+
+        <dt>
+            Yayınevi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Publisher)
+        </dd>
+
+        <dt>
+            Oluşturulma Tarihi
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedAt)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Listeye geri dön", "Index")
+        </div>
+    }
+</div>
