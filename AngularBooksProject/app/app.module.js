@@ -1,21 +1,17 @@
 import angular from "angular";
-import { BookListComponent } from "./components/book-list/book-list.component";
+import ngRoute from 'angular-route';
+import Components from "./components/components.module";
 
 const booksApp = angular
-  .module("booksApp", ["ngRoute"])
-  .component("booksApp", BookListComponent.create())
-  .config([
-    "$routeProvider",
-    function($routeProvider) {
-      $routeProvider
-        .when("/", {
-          template: "{{4*3}}<book-list></book-list>"
-        })
-        .otherwise({
-          redirectTo: "/"
-        });
-    }
+  .module("booksApp", [ngRoute, Components])
+  .config(["$routeProvider", function ($routeProvider) {
+    $routeProvider
+      .when("/", {
+        template: "<book-list></book-list>"
+      })
+      .otherwise({
+        redirectTo: "/"
+      });
+  }
   ]);
-console.log(booksApp);
 
-//https://github.com/emartech/angular-phonecat-components/blob/master/src/app/components/phone-list-app/phone-list-app.component.js
