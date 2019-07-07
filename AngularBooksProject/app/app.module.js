@@ -12,9 +12,6 @@ const booksApp = angular
       .when("/kitaplar/sil/:bookId", {
         template: "<book-edit></book-edit>"
       })
-      .when("/kitaplar/:bookId", {
-        template: "<book-edit></book-edit>"
-      })
       .otherwise({
         redirectTo: "/kitaplar"
       });
