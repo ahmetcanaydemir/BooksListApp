@@ -16,7 +16,8 @@
             </div>
             <div class="col-sm-2">
 
-                <a href="#!/yeni/"><button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Yeni
+                <a href="#!/kitaplar/yeni"><button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i>
+                        Yeni
                         Ekle</button></a>
             </div>
         </div>
@@ -48,15 +49,15 @@
 
             <tr ng-repeat="book in $ctrl.books | filter:$ctrl.query | orderBy:$ctrl.orderProp:$ctrl.reverse">
 
-                <td>{{book.Name}}</td>
+                <td><a href="#!/kitaplar/{{book.Id}}">{{book.Name}}</a></td>
                 <td>{{book.Writer}}</td>
                 <td>{{book.Publisher}}</td>
-                <td>{{book.CreatedAt}}</td>
+                <td>{{book.CreatedAt | date : "dd.MM.y"}}</td>
                 <td>
 
-                    <a href="#!/duzenle/{{book.Id}}" class="edit" title="Düzenle" data-toggle="tooltip"><i
+                    <a href="#!/kitaplar/{{book.Id}}" class="edit" title="Düzenle" data-toggle="tooltip"><i
                             class="fa fa-edit"></i></a>
-                    <a href="#!/sil/{{book.Id}}" class="delete" title="Sil" data-toggle="tooltip"><i
+                    <a ng-click="$ctrl.delete(book)" class="delete" title="Sil" data-toggle="tooltip"><i
                             class="fa fa-trash"></i></a>
                 </td>
             </tr>

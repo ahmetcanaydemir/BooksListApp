@@ -6,11 +6,17 @@ const booksApp = angular
   .module("booksApp", [ngRoute, Components])
   .config(["$routeProvider", function ($routeProvider) {
     $routeProvider
-      .when("/", {
+      .when("/kitaplar", {
         template: "<book-list></book-list>"
       })
+      .when("/kitaplar/sil/:bookId", {
+        template: "<book-edit></book-edit>"
+      })
+      .when("/kitaplar/:bookId", {
+        template: "<book-edit></book-edit>"
+      })
       .otherwise({
-        redirectTo: "/"
+        redirectTo: "/kitaplar"
       });
   }
   ]);

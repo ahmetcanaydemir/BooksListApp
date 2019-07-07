@@ -11,10 +11,10 @@ class BookService {
     return this.$http.get(this.API_URL + id);
   }
   post(book) { // insert
-    return this.$http.post(this.API_URL + id);
+    return this.$http.post(this.API_URL, JSON.stringify(book));
   }
   put(book) { // update
-    return this.$http.delete(this.API_URL + id);
+    return this.$http.put(this.API_URL, JSON.stringify(book));
   }
   delete(id) { // delete
     return this.$http.delete(this.API_URL + id);

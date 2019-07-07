@@ -1,0 +1,54 @@
+<div class="div-wrapper" ng-show="$ctrl.book==null">
+    <h2>{{$ctrl.bookId}} numaralı kitap <b>bulunamadı!</b></h2><br />
+</div>
+<div class="div-wrapper" ng-hide="$ctrl.book==null">
+    <h2>Kitap <b>{{$ctrl.title}}</b></h2><br />
+    <div class="row">
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="name">Kitap Adı:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" ng-model="$ctrl.book.Name" id="name"
+                    placeholder="Kitap adı girin">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="writer">Yazar:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" ng-model="$ctrl.book.Writer" id="writer"
+                    placeholder="Yazar girin">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="publisher">Yayınevi:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" ng-model="$ctrl.book.Publisher" id="publisher"
+                    placeholder="Yayınevi girin">
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-hide="$ctrl.isNew">
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="createdat"></label>
+            <div class="col-sm-10">
+                <span class="text-dark" id="createdat">Bu kitap {{$ctrl.book.CreatedAt | date : 'dd.MM.y'}} tarihinde
+                    eklendi.</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <div class="col-sm-2">
+                <button type="submit" ng-click="$ctrl.goBack()" class="btn btn-primary"><i
+                        class="fa fa-angle-double-left" aria-hidden="true"></i> Listeye Dön</button>
+            </div>
+            <div class="col-sm-offset-3 col-sm-5">
+                <button type="submit" ng-click="$ctrl.save()" class="btn btn-success"><i class="fa fa-floppy-o"
+                        aria-hidden="true"></i> Kitabı {{$ctrl.title}}</button>
+            </div>
+        </div>
+    </div>
+</div>
