@@ -3,6 +3,6 @@ import BookService from './core.book.service';
 
 let BookModule = angular
   .module('core.book', [])
-  .service('BookService', ["$http", BookService]);
+  .service('BookService', BookService);
 
 export default BookModule.name;

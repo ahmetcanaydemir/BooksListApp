@@ -1,4 +1,3 @@
-import angular from 'angular';
 class BookService {
   constructor($http) {
     this.$http = $http;
@@ -19,6 +18,5 @@ class BookService {
   delete(id) { // delete
     return this.$http.delete(this.API_URL + id);
   }
-
 }
-export default BookService;
+export default ["$http", BookService];

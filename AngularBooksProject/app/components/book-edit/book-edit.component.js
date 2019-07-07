@@ -23,19 +23,19 @@ class BookEditComponent {
     }
   }
   add() {
-    this.BookService.post(this.book);
-    alert("Kitap başarı ile eklendi!");
-    this.goBack();
+    this.BookService.post(this.book).then(result => {
+      alert("Kitap başarı ile eklendi!");
+      this.goBack();
+    });
   }
   update() {
-    this.BookService.put(this.book);
-    alert("Kitap başarı ile güncellendi!");
-    this.goBack();
+    this.BookService.put(this.book).then(result => {
+      alert("Kitap başarı ile güncellendi!");
+      this.goBack();
+    });
   }
   goBack() {
-    setTimeout(() => {
-      window.location.href = '#!/kitaplar';
-    }, 200);
+    window.location.href = '#!/kitaplar';
   }
 }
 export default {
