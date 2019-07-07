@@ -42,8 +42,6 @@ namespace WebAPI.Controllers
         [HttpPost]
         public bool Post([FromBody]Book book)
         {
-            if (!ModelState.IsValid)
-                return false;
             _bookService.Insert(book);
             return true;
         }
