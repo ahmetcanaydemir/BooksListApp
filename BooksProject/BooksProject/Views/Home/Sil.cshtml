@@ -10,6 +10,13 @@
 <div>
     <dl class="dl-horizontal">
         <dt>
+            Isbn
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Isbn)
+        </dd>
+        <dt>
             Ad
         </dt>
 
@@ -46,7 +53,7 @@
     @using (Html.BeginForm()) {
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <input type="submit" value="Sil" class="btn btn-default" /> |
             @Html.ActionLink("Listeye geri dön", "Index")
         </div>
     }

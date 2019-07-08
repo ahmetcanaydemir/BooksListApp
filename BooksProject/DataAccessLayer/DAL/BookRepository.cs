@@ -33,6 +33,7 @@ namespace DataAccessLayer.DAL
                 while (reader.Read())
                 {
                     book.Id = Convert.ToInt32(reader["id"]);
+                    book.Isbn = reader["isbn"].ToString();
                     book.Name = reader["name"].ToString();
                     book.Writer = reader["writer"].ToString();
                     book.Publisher = reader["publisher"].ToString();
@@ -57,6 +58,7 @@ namespace DataAccessLayer.DAL
                     Book book = new Book()
                     {
                         Id = Convert.ToInt32(reader["id"]),
+                        Isbn = reader["isbn"].ToString(),
                         Name = reader["name"].ToString(),
                         Writer = reader["writer"].ToString(),
                         Publisher = reader["publisher"].ToString(),
@@ -74,7 +76,8 @@ namespace DataAccessLayer.DAL
             using (var con = new MySqlConnection(connectionString))
             {
                 con.Open();
-                var command = new MySqlCommand("INSERT INTO books (name,writer,publisher,createdat) VALUES (@name,@writer,@publisher,@createdat)", con);
+                var command = new MySqlCommand("INSERT INTO books (isbn,name,writer,publisher,createdat) VALUES (@isbn,@name,@writer,@publisher,@createdat)", con);
+                command.Parameters.AddWithValue("isbn", book.Isbn);
                 command.Parameters.AddWithValue("name", book.Name);
                 command.Parameters.AddWithValue("writer", book.Writer);
                 command.Parameters.AddWithValue("publisher", book.Publisher);
@@ -89,8 +92,9 @@ namespace DataAccessLayer.DAL
             using (var con = new MySqlConnection(connectionString))
             {
                 con.Open();
-                var command = new MySqlCommand("UPDATE books SET name=@name,writer=@writer,publisher=@publisher,createdat=@createdat WHERE id=@id", con);
+                var command = new MySqlCommand("UPDATE books SET isbn=@isbn,name=@name,writer=@writer,publisher=@publisher,createdat=@createdat WHERE id=@id", con);
                 command.Parameters.AddWithValue("id", book.Id);
+                command.Parameters.AddWithValue("isbn", book.Isbn);
                 command.Parameters.AddWithValue("name", book.Name);
                 command.Parameters.AddWithValue("writer", book.Writer);
                 command.Parameters.AddWithValue("publisher", book.Publisher);

@@ -16,6 +16,7 @@
     <table class="table table-bordered">
         <thead>
             <tr>
+                <th>Isbn</th>
                 <th>Ad</th>
                 <th>Yazar</th>
                 <th>Yayınevi</th>
@@ -28,7 +29,7 @@
             @foreach(var book in Model)
             {
                 <tr>
-
+                    <td>@book.Isbn</td>
                     <td>@book.Name</td>
                     <td>@book.Writer</td>
                     <td>@book.Publisher</td>

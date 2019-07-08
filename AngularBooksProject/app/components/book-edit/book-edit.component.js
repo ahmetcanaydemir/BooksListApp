@@ -6,7 +6,7 @@ class BookEditComponent {
     this.bookId = $routeParams.bookId;
     this.isNew = this.bookId === "yeni";
     this.title = this.isNew ? "Ekle" : "Düzenle";
-    this.book = { Id: "", Name: "", Writer: "", Publisher: "" };
+    this.book = { Isbn: "", Id: "", Name: "", Writer: "", Publisher: "" };
     if (this.isNew) {
       return;
     }
@@ -14,11 +14,11 @@ class BookEditComponent {
       this.book = response.data;
     });
   }
-  save() {
+  save(formValid) {
+    if (!formValid) return;
     if (this.isNew) {
       this.add();
-    }
-    else {
+    } else {
       this.update();
     }
   }
@@ -35,10 +35,10 @@ class BookEditComponent {
     });
   }
   goBack() {
-    window.location.href = '#!/kitaplar';
+    window.location.href = "#!/kitaplar";
   }
 }
 export default {
-  controller: ["$routeParams", 'BookService', BookEditComponent],
+  controller: ["$routeParams", "BookService", BookEditComponent],
   template: Template
 };

@@ -1,1 +1,1 @@
-angular project init
+angular project complated without tests yet

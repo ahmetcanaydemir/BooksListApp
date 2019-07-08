@@ -15,7 +15,7 @@ namespace BooksProject
 
             routes.MapRoute(
                 name: "DefaultApi",
-                url: "api/{controller}/{action}/{id}",
+                url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Book", id = UrlParameter.Optional }
             );
         }

@@ -1,0 +1,7 @@
+mAngularBooksProject
+mAngularBooksProject/app
+mAngularBooksProject/app/components/book-edit
+mAngularBooksProject/app/components/book-list
+mAngularBooksProject/app/dist
+mBooksProject/DataAccessLayer/DAL
+mBooksProject/DataAccessLayer/Models
