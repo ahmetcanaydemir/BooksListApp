@@ -6,7 +6,14 @@ class BookEditComponent {
     this.bookId = $routeParams.bookId;
     this.isNew = this.bookId === "yeni";
     this.title = this.isNew ? "Ekle" : "Düzenle";
-    this.book = { Isbn: "", Id: "", Name: "", Writer: "", Publisher: "" };
+    this.book = {
+      Id: "",
+      Isbn: "",
+      Name: "",
+      Writer: "",
+      Publisher: "",
+      CreatedAt: ""
+    };
     if (this.isNew) {
       return;
     }

@@ -9,7 +9,7 @@
   <br />
   <form name="form" ng-submit="$ctrl.save(form.$valid)">
     <div class="row">
-      <div class="form-group">
+      <div class="form-group" ng-class="{'has-error': !form.isbn.$valid}">
         <label class="control-label col-sm-2" for="isbn">ISBN:</label>
         <div class="col-sm-5">
           <input
@@ -41,7 +41,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="form-group">
+      <div class="form-group" ng-class="{'has-error': !form.name.$valid}">
         <label class="control-label col-sm-2" for="name">Kitap Adı:</label>
         <div class="col-sm-5">
           <input
@@ -68,7 +68,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="form-group">
+      <div class="form-group" ng-class="{'has-error': !form.writer.$valid}">
         <label class="control-label col-sm-2" for="writer">Yazar:</label>
         <div class="col-sm-5">
           <input
@@ -95,7 +95,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="form-group">
+      <div class="form-group" ng-class="{'has-error': !form.publisher.$valid}">
         <label class="control-label col-sm-2" for="publisher">Yayınevi:</label>
         <div class="col-sm-5">
           <input

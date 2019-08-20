@@ -13,3 +13,7 @@
   color: red;
   margin-top: 7px;
 }
+
+.col-sm-5 {
+  padding: 0;
+}
